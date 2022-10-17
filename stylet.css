@@ -1,0 +1,505 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: repeating-linear-gradient(0deg, maroon,#1d061a);
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  padding: 0;
+  margin: 0;
+}
+h1{
+  position: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 160px;
+  margin-bottom: 40px;
+  font-size: 4vw;
+  color: white;
+  font-family: "serif";
+  
+}
+p{
+  display: none;
+}
+@media screen and (max-width: 1000px ){
+  h1{
+    margin-top: 160px;
+    margin-bottom: 40px;
+    font-size: 45px;
+  }  
+  p{
+    display: block;
+    text-align: center;
+    justify-content: center;
+    margin: 0;
+    color: #656565;
+  }
+  }
+.navb{
+  overflow-x: hidden;
+}
+.content {
+  width: 100%;
+  margin: 2px;
+  padding: 2px;
+  font-family: sans-serif;
+}
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+  
+}
+.navbar.sticky {
+  background: #1b1b1b;
+  padding: 10px 0;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  border-bottom: 0.5rem solid maroon;
+  
+}
+
+.navbar .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.navbar .logo a {
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 15px;
+
+}
+
+.navbar .menu-list {
+  display: inline-flex;
+}
+
+.menu-list li {
+  list-style: none;
+}
+
+.menu-list li a {
+  position: relative;
+  font-size: 1em;
+  text-decoration: none;
+  line-height: 1em;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+}
+
+ul li a::before {
+  content: attr(data-text);
+  position: absolute;
+  color: var(--clr);
+  width: 0;
+  overflow: hidden;
+  transition: 1s;
+  border-right: 8px solid var(--clr);
+  -webkit-text-stroke: 1prx var(--clr);
+
+}
+
+ul li a:hover::before {
+  width: 100%;
+  filter: drop-shadow(0 0 25px var(--clr));
+}
+.icon {
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  display: none;
+  margin: 15px;
+}
+
+.menu-list .cancel-btn {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+
+@media (max-width: 870px) {
+  body.disabled {
+      overflow: hidden;
+  }
+
+  .icon {
+      display: block;
+  }
+
+  .icon.hide {
+      display: none;
+
+  }
+
+  .navbar .menu-list {
+
+      position: fixed;
+      height: 100vh;
+      width: 100%;
+      max-width: 400px;
+      left: -100%;
+      top: 0px;
+      display: block;
+      padding: 30px 100px;
+      background: #222;
+      transition: all 0.3s ease;
+  }
+
+  .navbar.show .menu-list {
+      left: 0%;
+
+  }
+
+  .navbar .menu-list li {
+      margin-top: 45px;
+
+  }
+
+  .navbar .menu-list li a {
+
+      font-size: 2em;
+      margin-left: -100%;
+      transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      position: relative;
+      font-size: 2em;
+      text-decoration: none;
+      line-height: 1, 001em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px rgb(255, 255, 255);
+      font-family: 'Bebas Neue', Tahoma;
+  }
+
+  .navbar.show .menu-list li a {
+      margin-left: 0px;
+
+  }
+}
+
+/* BASICS */
+
+.card {
+  height: 550px;
+  width: 450px;
+  position: relative;
+  margin: 30px auto;
+  transform-style: preserve-3d;
+  transition: all 2s ease-in-out;
+ 
+}
+@media screen and (min-width: 1000px ){
+  .card{
+    display: inline-block;
+    justify-content: space-between;
+    margin: 20px;
+}  
+  }
+.card > div {
+  border: 4px solid white;
+  border-radius: 45px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1d061a ;
+  opacity: 1;
+  box-shadow: 3px 3px 10px #121d3d ,  -3px -3px 10px #121d3d;   
+}
+
+
+/* FRONT CARD */
+
+.card .front {
+  z-index: 2;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.card .front header {
+  background-image: url("./images/logo_megamh.png");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150px;
+  border-bottom: 4px solid white;
+  border-radius: 41px 41px 0 0;
+  z-index: 5;
+}
+
+.card .front header img {
+  border: 4px solid white;
+  background-color: white;
+  border-radius: 50%; 
+  margin-top: 50px;
+}
+
+
+.card .front .meno h2 {
+  color: white;
+  margin-top: 80px;
+  font-weight: bold;
+  font-size: 35px;
+  font-family: 'Bebas Neue', Tahoma;
+  margin-bottom: 0px;
+}
+
+.card .front .meno h2 span {
+  color: white;
+  font-weight: lighter;
+  font-size: 20px;
+  
+}
+.card .front .text1  {
+  font-size: 17px;
+  line-height: 2;
+  color: white;
+  font-weight: bolder;
+  border: 2px solid white;
+  border-radius: 20px 20px 20px 20px;
+  margin: 10px 25px;
+  background-color: black;
+  text-align: left;
+
+}
+.card .front .text2 {
+  font-size: 17px;
+  line-height: 1.7;
+  color: white;
+  font-weight: bolder;
+  border: 2px solid white;
+  border-radius: 20px 20px 20px 20px;
+  margin: 10px 25px;
+  background-color: black;
+  text-align: left;
+}
+.card .front .text3 {
+  font-size: 17px;
+  line-height: 1.7;
+  color: white;
+  font-weight: bolder;
+  border: 2px solid white;
+  border-radius: 20px 20px 20px 20px;
+  margin: 10px 25px;
+  background-color: black;
+  text-align: left;
+}
+
+/* BACK CARD */
+
+.card .back {
+  z-index: 1;
+  transform: rotateY(180deg) rotateZ(180deg) ;
+  backface-visibility: hidden;
+}
+
+.back .fb img {
+  margin-top: 100px;
+  height: 130px;
+  width: 130px;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+.back .mail img {
+  height: 130px;
+  width: 130px;
+  border: 4px solid white;
+  border-radius: 50%;
+  position: relative;
+  left: 100px;
+  top: -30px;
+  
+}
+
+.back .tel img {
+  height: 130px;
+  width: 130px;
+  margin-top: -8px;
+  border: 4px solid white;
+  border-radius: 50%;
+  position: relative;
+  left: -98px;
+  top:-162px;
+}
+
+.back img {
+  margin: 10px;
+}
+
+.card:hover {
+  transform: rotateY(180deg) rotateZ(180deg) ;
+}
+
+  /* footer */
+/*--------*/
+/*--------*/
+.main-content h2{
+  
+  font-size: 20px;
+  line-height: 1;
+}
+footer{
+  margin-top: 100px;
+  border-top: 0.5rem solid maroon;
+  width: 100%;
+  background: #111;
+}
+.content1{
+position: relative;
+margin: 130px auto;
+text-align: center;
+padding: 0 20px;
+}
+.main-content{
+  display: flex;
+}
+.main-content .box{
+  flex-basis: 50%;
+  padding: 10px 20px;
+  color: #d9d9d9;
+}
+.box .content{
+  margin: 20px 0 0 0;
+  position: relative;
+}
+
+.box .content:after{
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 15%;
+  background: maroon;
+  top: -10px;
+}
+.left .content p{
+  text-align: justify;
+  line-height: 2;
+}
+/*fb a ig*/
+.left .content .social{
+  margin: 20px 0 0 0;
+}
+.left .content .social a{
+  padding: 0 5px;
+}
+
+.left .content .social a span{
+  height: 40px;
+  width: 40px;
+  background: #1a1a1a;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: 0.3s;
+  color: white;
+}
+
+.left .content .social a span:hover{
+  background: maroon;
+}
+
+/* adresa*/
+.center .content .fas{
+  font-size: 1.4375rem;
+  background: #1a1a1a;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.center .content .fas:hover{
+  background: maroon;
+}
+.center .content .text{
+  font-size: 1.0625rem;
+  font-weight: 500;
+  padding-left: 10px;
+}
+.center .content .phone{
+  margin: 15px 0;
+}
+.content a{
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+/*kontaktujte nas*/
+.right form .text{
+  font-size: 1.0625rem;
+  margin-bottom: 2px;
+  color: #656565;
+}
+.right form .msg{
+  margin-top: 10px;
+}
+.right form input, .right form textarea{
+  width: 100%;
+  font-size: 1.0625rem;
+  background: #151515;
+  padding-left: 10px;
+  border: 1px solid maroon;
+  color: white;
+}
+.right form input{
+  height: 35px;
+}
+.right form .btn{
+  margin-top: 10px;
+}
+.right form .btn button{
+  height: 40px;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: maroon;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .3s;
+  color: white;
+}
+.right form .btn button:hover{
+  background: #000;
+}
+@media screen and (max-width: 854px) {
+  footer{
+    position: relative;
+    bottom: 0px;
+  }
+  .main-content{
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .main-content .box{
+    margin: 5px 0;
+  }
+}
+.containers
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 0;
+  background: #1d061a;
+  border-bottom: 0.75rem solid maroon;
+}
+
+
+
